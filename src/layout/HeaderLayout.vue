@@ -1,18 +1,24 @@
 <template>
     <header>
         <nav>
-            <li>
+            <ul><li>
                 <router-link to="/">Home</router-link>
             </li>
-            <li>
+            </ul>
+            <ul>            <li>
                 <router-link to="/cooker">Cooker</router-link>
-            </li>
+            </li></ul>
+            <ul>           
             <li>
                 <router-link to="/login">Login</router-link>
             </li>
+        </ul>
+            <ul>
             <li>
                 <router-link to="/register">Register</router-link>
             </li>
+        </ul>
+
         </nav>
     </header>
 
