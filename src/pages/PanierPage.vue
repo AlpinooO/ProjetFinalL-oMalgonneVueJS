@@ -21,14 +21,10 @@
   
   <script setup>
   import { ref } from 'vue';
-  import { useRouter } from 'vue-router';
   import { useAuthStore } from '../stores/auth';
   
   const authStore = useAuthStore();
-  const cart = ref([
-    { name: 'Plat 1', price: 10 },
-    { name: 'Plat 2', price: 15 },
-  ]);
+  const cart = ref([]);
   
   const removeFromCart = (index) => {
     cart.value.splice(index, 1);

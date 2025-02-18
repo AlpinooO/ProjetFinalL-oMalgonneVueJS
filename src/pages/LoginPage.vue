@@ -28,7 +28,6 @@
                 <button type="submit" class="button is-primary">Valider</button>
                 <button type="reset" class="button is-danger">Annuler</button>
             </section>
-
         </form>
     </main>
 </template>
@@ -37,23 +36,21 @@
 import { watch, ref} from "vue";
 import InputValidator from '../utils/input-validator';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/auth';
 
 const router = useRouter();
-
-
+const authStore = useAuthStore();
 
 const email = ref('')
 const password = ref('')
 
 watch(email, (val) =>{
-    console.log(val,InputValidator(val, 'email'));
+    console.log(val, InputValidator(val, 'email'));
 })
 
 watch(password,(val) =>{
-    console.log(val,InputValidator(val, 'password'));
+    console.log(val, InputValidator(val, 'password'));
 })
-
-
 
 const submitHandler = async()=> {
     const result = await fetch('users.json');
@@ -62,17 +59,16 @@ const submitHandler = async()=> {
 
     const user = users.find((user:{email: string, password: string})=> user.email === email.value)
     if (!user){
-        prompt('Utilisateur non trouvé');
-        return
+        alert('Utilisateur non trouvé');
+        return;
     } 
     if (!(user.password === password.value)){
         alert('Mot de passe incorrect');
-        return
+        return;
     }
 
     console.log('Utilisateur trouvé', user);
-    router.push('/session/' + user.id);
-
+    authStore.user = user; 
+    router.push('/panier'); 
 }
-
 </script>
