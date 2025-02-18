@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage.vue'
 import NotFoundPage from './pages/NotFoundPage.vue'
 import RegisterPage from './pages/RegisterPage.vue'
 import CookerPage from './pages/CookerPage.vue'
+import PanierPage from './pages/PanierPage.vue'
 import { createWebHashHistory} from 'vue-router'
 import { createRouter } from 'vue-router'
 
@@ -20,6 +21,11 @@ const routes = [
         path: '/cooker',
         component: CookerPage
     },{
+        path: '/panier',
+        component: PanierPage
+    },
+    
+    {
         path:  "/:catchAll(.*)",
         component: NotFoundPage
     }

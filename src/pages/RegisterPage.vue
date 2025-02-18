@@ -1,48 +1,72 @@
 <template>
-    <div class="register-page container">
-      <h2 class="title is-3 has-text-centered">Inscription</h2>
-      <form @submit.prevent="register" class="box">
-        <div class="field">
-          <label class="label">Nom</label>
-          <div class="control">
-            <input v-model="user.name" class="input" type="text" placeholder="Nom" required />
-          </div>
-        </div>
-        
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input v-model="user.email" class="input" type="email" placeholder="Email" required />
-          </div>
-        </div>
-        
-        <div class="field">
-          <label class="label">Mot de passe</label>
-          <div class="control">
-            <input v-model="user.password" class="input" type="password" placeholder="Mot de passe" required />
-          </div>
-        </div>
-        
-        <div class="control">
-          <button class="button is-primary" type="submit">S'inscrire</button>
-        </div>
-      </form>
-      <p class="has-text-centered">Déjà un compte ? <router-link to="/login" class="has-text-link">Connectez-vous</router-link></p>
-    </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import { useRouter } from 'vue-router';
-  import { useAuthStore } from '../stores/auth';
-  
-  const router = useRouter();
-  const authStore = useAuthStore();
-  const user = ref({ name: '', email: '', password: '' });
-  
-  const register = async () => {
-    await authStore.register(user.value);
-    router.push('/');
-  };
-  </script>
-  
+    <main class="login_main">
+        <h1>Register Page</h1>
+        <form v-on:submit.prevent="" class="form"> 
+            <section>
+                <article>
+                    <label for="email"></label>
+                    <input v-model="email"
+                    id="email"
+                    placeholder="Entrez votre email"
+                    type="email"
+                    class="input"
+                    />
+                </article>
+            </section>
+            <section>
+                <article>
+                    <label for="nom"></label>
+                    <input v-model="nom"
+                    id="nom"
+                    placeholder="Entrez votre nom"
+                    type="text"
+                    class="input"
+                    />
+                </article>
+            </section>
+            <section>
+                <article>
+                    <label for="password"></label>
+                    <input v-model="password"
+                    id="password"
+                    placeholder="Entrez votre mot de passe"
+                    type="password"
+                    class="input"
+                    />
+                </article>
+            </section>
+            <section>
+                <button type="submit" class="button is-primary">Valider</button>
+                <button type="reset" class="button is-danger">Annuler</button>
+            </section>
+
+        </form>
+    </main>
+</template>
+
+<script lang="ts" setup>
+import { watch, ref} from "vue";
+import InputValidator from '../utils/input-validator';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+
+
+const email = ref('')
+const nom = ref('')
+const password = ref('')
+
+watch(email, (val) =>{
+    console.log(val,InputValidator(val, 'email'));
+})
+
+watch(nom, (val) =>{
+    console.log(val,InputValidator(val, 'nom'));
+})
+watch(password,(val) =>{
+    console.log(val,InputValidator(val, 'password'));
+})
+
+
+</script>
