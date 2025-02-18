@@ -20,14 +20,21 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue';
   import { useAuthStore } from '../stores/auth';
+  import { useCartStore } from '../stores/cart';
   
   const authStore = useAuthStore();
-  const cart = ref([]);
+  const cartStore = useCartStore();
   
+
+  cartStore.loadCart();
+  
+
+  const cart = cartStore.cart;
+  
+ 
   const removeFromCart = (index) => {
-    cart.value.splice(index, 1);
+    cartStore.removeFromCart(index); 
   };
   </script>
   

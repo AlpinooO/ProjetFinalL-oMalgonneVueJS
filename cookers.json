@@ -3,7 +3,7 @@
       "id": 1,
       "name": "Jean Dupont",
       "specialty": "Cuisine Française",
-      "photo": "path_to_photo_1.jpg",
+      "photo": "photo1.jpg",
       "dishes": [
         {
           "name": "Coq au Vin",
@@ -21,7 +21,7 @@
       "id": 2,
       "name": "Marie Leclerc",
       "specialty": "Cuisine Italienne",
-      "photo": "path_to_photo_2.jpg",
+      "photo": "photo2.jpg",
       "dishes": [
         {
           "name": "Pizza Margherita",
