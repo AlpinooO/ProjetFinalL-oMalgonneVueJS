@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "Jean Dupont",
+      "specialty": "Cuisine Française",
+      "photo": "path_to_photo_1.jpg",
+      "dishes": [
+        {
+          "name": "Coq au Vin",
+          "description": "Un classique de la cuisine française avec du poulet cuit dans du vin rouge.",
+          "price": 15
+        },
+        {
+          "name": "Boeuf Bourguignon",
+          "description": "Plat traditionnel de bœuf braisé avec des légumes et du vin rouge.",
+          "price": 20
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Marie Leclerc",
+      "specialty": "Cuisine Italienne",
+      "photo": "path_to_photo_2.jpg",
+      "dishes": [
+        {
+          "name": "Pizza Margherita",
+          "description": "Pizza classique avec tomate, mozzarella, et basilic.",
+          "price": 12
+        },
+        {
+          "name": "Pasta Carbonara",
+          "description": "Pâtes avec une sauce crémeuse à base de lardons et de fromage.",
+          "price": 14
+        }
+      ]
+    }
+  ]
+  
